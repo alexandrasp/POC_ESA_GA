@@ -1,0 +1,3 @@
+COMPONENT=SerialAppC
+include $(MAKERULES)
+PFLAGS += ESA_GA.c
