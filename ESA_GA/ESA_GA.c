@@ -9,6 +9,7 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 #include "ESA_GA.h"
 
 
@@ -54,7 +55,7 @@ void startListAG(Temp* knowledge_base){
 	}
 
 
-};
+}
 
 void startList(Temp* knowledge_base)
 {
@@ -65,21 +66,20 @@ void startList(Temp* knowledge_base)
     knowledge_base->Temperature[i]=0;
   }
 
-};
+}
 
 void knowledge_base_control(Temp* knowledge_base, float temp_real)
 {
   knowledge_base->Temperature[knowledge_base->control] = temp_real;
   knowledge_base->control = (knowledge_base->control+1)%(MAX_TAM/2);
 
-};
+}
 
 //module to do data analysis
 int data_analysis(Temp* knowledge_base, float temp_real)
 {
     int i;
     float average_temp_vc=0;
-    float average_temp_hc=0;
     float average_temp=0;
     float difference = 0;
     int choice=0;
@@ -88,11 +88,7 @@ int data_analysis(Temp* knowledge_base, float temp_real)
         average_temp = average_temp+knowledge_base->Temperature[i];
     }
 
-
     average_temp_vc=average_temp/MAX_TAM;
-    //average_temp_hc=hc(&knowledge_base)
-
-    average_temp = (average_temp_vc+average_temp_hc)/2;
 
     difference = temp_real - average_temp;
 
@@ -114,7 +110,7 @@ int data_analysis(Temp* knowledge_base, float temp_real)
 
     return choice;
 
-};
+}
 
 //planning strategies steps to esa
 void planning(int choice, int *SENSOR_INTERVAL, int *PROPAGATION_INTERVAL)
@@ -157,7 +153,7 @@ void planning(int choice, int *SENSOR_INTERVAL, int *PROPAGATION_INTERVAL)
       break;
 
     }
-};
+}
 
 void populacaoInicial(float pop[][MAX_TAM_GA])
 {
@@ -170,14 +166,12 @@ void populacaoInicial(float pop[][MAX_TAM_GA])
 		}
 	}
 
-};
+}
 
 void calculaFitnessESelecao(float pop[][MAX_TAM_GA])
 {
 
-	int i,j;
-	int m=0;
-	int n=0;
+	int i,j, m, n;
 	float media[5];
 	float dp[5];
 	float indexchoice1=0;
@@ -221,7 +215,8 @@ void calculaFitnessESelecao(float pop[][MAX_TAM_GA])
 		}
 	}
 	crossover(pop, m, n);
-};
+
+}
 
 void crossover(float pop[][MAX_TAM_GA], int m, int n)
 {
@@ -241,7 +236,7 @@ void crossover(float pop[][MAX_TAM_GA], int m, int n)
 		}
 	}
 
-};
+}
 
 void mutacao(float pop[][MAX_TAM_GA])
 {
@@ -253,4 +248,13 @@ void mutacao(float pop[][MAX_TAM_GA])
 			}
 		}
 
-};
+	printf("\n");
+
+		for(i=0; i<MAX_TAM_GA; i++){
+				for(j=0; j<5; j++){
+					printf("%f ", pop[i][j]);
+				}
+				printf("\n\n");
+		}
+
+}
