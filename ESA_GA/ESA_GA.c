@@ -67,7 +67,7 @@ void knowledge_base_control(Temp* knowledge_base, float temp_real)
 int data_analysis(Temp* knowledge_base, float temp_real)
 {
     int i;
-    float average_temp_vc=0;
+    //float average_temp_vc=0;
     float average_temp=0;
     float difference = 0;
     int choice=0;
@@ -76,7 +76,7 @@ int data_analysis(Temp* knowledge_base, float temp_real)
         average_temp = average_temp+knowledge_base->Temperature[i];
     }
 
-    average_temp_vc=average_temp/MAX_TAM;
+    //average_temp_vc=average_temp/MAX_TAM;
 
     difference = temp_real - average_temp;
 
@@ -234,15 +234,6 @@ void mutacao(float pop[][MAX_TAM_GA])
 			for(j=0; j<MAX_TAM_GA; j++){
 				pop[i][j] = pop[i][j]*0.9985;
 			}
-		}
-
-	printf("\n");
-
-		for(i=0; i<MAX_TAM_GA; i++){
-				for(j=0; j<5; j++){
-					printf("%f ", pop[i][j]);
-				}
-				printf("\n\n");
 		}
 
 }
