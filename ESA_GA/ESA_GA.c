@@ -9,19 +9,7 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
-#include <time.h>
 #include "ESA_GA.h"
-
-
-/*
- ============================================================================
- Name        : ESA.c
- Author      : Alexandra Silva
- Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
- ============================================================================
- */
 
 
 void startListAG(Temp* knowledge_base){
