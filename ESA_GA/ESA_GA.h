@@ -3,14 +3,15 @@
 #include <math.h>
 
 #define MAX_TAM_GA 5
-#define MIN_RAND 20.0
+#define INDIVIDUOS 10
+#define MIN_RAND 15.0
 #define MAX_RAND 35.0
 #define range 15
 #define N 0.05
 #define repeat 5
 #define myrand 0.06
 #define randSelect (0+(rand()%9))
-#define MAX_TAM 50
+#define MAX_TAM 100
 #define HIGH_PROPAGATION 2000
 #define LOW_PROPAGATION 20000
 #define HIGH_SENSORING 1000

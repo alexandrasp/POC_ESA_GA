@@ -12,13 +12,24 @@
 #include "ESA_GA.h"
 
 
+/*
+ ============================================================================
+ Name        : ESA.c
+ Author      : Alexandra Silva
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+
 void startListAG(Temp* knowledge_base){
 
-	float Temperature[5][MAX_TAM_GA];
+	float Temperature[INDIVIDUOS][MAX_TAM_GA];
 	float aux[25];
 	int i,j;
 	populacaoInicial(Temperature);
-	for(i=0; i<5; i++)
+	for(i=0; i<40; i++)
 	{
 		calculaFitnessESelecao(Temperature);
 		mutacao(Temperature);
@@ -26,9 +37,9 @@ void startListAG(Temp* knowledge_base){
 
 	int k=0;
 
-	for(i=0; i<5; i++)
+	for(i=0; i<INDIVIDUOS; i++)
 	{
-		for(j=0; j< MAX_TAM_GA; j++)
+		for(j=0; j<MAX_TAM_GA; j++)
 		{
 			aux[k]=Temperature[i][j];
 			k++;
@@ -37,9 +48,9 @@ void startListAG(Temp* knowledge_base){
 
 
 
-	for(i=25; i<MAX_TAM; i++)
+	for(i=50; i<MAX_TAM; i++)
 	{
-		knowledge_base->Temperature[i]=aux[i-25];
+		knowledge_base->Temperature[i]=aux[i-50];
 	}
 
 
@@ -146,7 +157,7 @@ void planning(int choice, int *SENSOR_INTERVAL, int *PROPAGATION_INTERVAL)
 void populacaoInicial(float pop[][MAX_TAM_GA])
 {
 	int i,j;
-	for(i=0; i<5; i++)
+	for(i=0; i<INDIVIDUOS; i++)
 	{
 		for(j=0; j<MAX_TAM_GA; j++)
 		{
@@ -159,13 +170,15 @@ void populacaoInicial(float pop[][MAX_TAM_GA])
 void calculaFitnessESelecao(float pop[][MAX_TAM_GA])
 {
 
-	int i,j, m, n;
-	float media[5];
-	float dp[5];
+	int i,j;
+	int m=0;
+	int n=0;
+	float media[INDIVIDUOS];
+	float dp[INDIVIDUOS];
 	float indexchoice1=0;
 	float indexchoice2=0;
 
-	for(i=0; i<5; i++)
+	for(i=0; i<INDIVIDUOS; i++)
 	{
 		media[i]=0;
 		dp[i]=0;
@@ -176,7 +189,7 @@ void calculaFitnessESelecao(float pop[][MAX_TAM_GA])
 		media[i] = media[i]/MAX_TAM_GA;
 	}
 
-	for(i=0;i<5;i++)
+	for(i=0; i<INDIVIDUOS; i++)
 	{
 		for(j=0;j<MAX_TAM_GA;j++)
 		{
@@ -211,7 +224,7 @@ void crossover(float pop[][MAX_TAM_GA], int m, int n)
 
 	int i,j;
 
-	for(i=0; i<5; i++)
+	for(i=0; i<INDIVIDUOS; i++)
 	{
 		for(j=0; j<MAX_TAM_GA; j++){
 			if(i!=m && i!=n){
@@ -229,10 +242,10 @@ void crossover(float pop[][MAX_TAM_GA], int m, int n)
 void mutacao(float pop[][MAX_TAM_GA])
 {
 	int i,j;
-	for(i=0; i<5; i++)
+	for(i=0; i<INDIVIDUOS; i++)
 		{
 			for(j=0; j<MAX_TAM_GA; j++){
-				pop[i][j] = pop[i][j]*0.9985;
+				pop[i][j] = pop[i][j]*0.9885;
 			}
 		}
 
