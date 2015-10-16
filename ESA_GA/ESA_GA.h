@@ -34,5 +34,5 @@ void execution();
 void startListAG(Temp* knowledge_base);
 void populacaoInicial(float pop[][MAX_TAM_GA]);
 void calculaFitnessESelecao(float pop[][MAX_TAM_GA]);
-void crossover(float pop[][MAX_TAM_GA], int m, int n);
+void crossover(float pop[][MAX_TAM_GA], float dp[]);
 void mutacao(float pop[][MAX_TAM_GA]);
