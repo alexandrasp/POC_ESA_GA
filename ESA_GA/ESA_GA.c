@@ -197,45 +197,14 @@ void calculaFitnessESelecao(float pop[][MAX_TAM_GA])
 		}
 		dp[i]=sqrt((dp[i]/(5-1)));
 
-		if(i==0)
-		{
-			indexchoice1=dp[i];
-			indexchoice2=dp[i];
-		}else
-		{
-			if(indexchoice1<dp[i])
-			{
-				indexchoice1=dp[i];
-				m=i;
-			}
-			if(dp[i]>indexchoice2 && dp[i]<indexchoice1)
-			{
-				indexchoice2=dp[i];
-				n=i;
-			}
-		}
 	}
-	crossover(pop, m, n);
+
+	crossover(pop, dp);
 
 }
 
-void crossover(float pop[][MAX_TAM_GA], int m, int n)
+void crossover(float pop[][MAX_TAM_GA], float dp[])
 {
-
-	int i,j;
-
-	for(i=0; i<INDIVIDUOS; i++)
-	{
-		for(j=0; j<MAX_TAM_GA; j++){
-			if(i!=m && i!=n){
-				if(j<3)
-					pop[i][j]=pop[m][j];
-				else
-					pop[i][j]=pop[n][j];
-
-			}
-		}
-	}
 
 }
 
