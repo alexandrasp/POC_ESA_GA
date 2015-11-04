@@ -4,6 +4,7 @@
 
 #define MAX_TAM_GA 5
 #define INDIVIDUOS 10
+#define GERACOES 40
 #define MIN_RAND 15.0
 #define MAX_RAND 35.0
 #define range 15
@@ -33,6 +34,6 @@ void execution();
 //GA
 void startListAG(Temp* knowledge_base);
 void populacaoInicial(float pop[][MAX_TAM_GA]);
-void calculaFitnessESelecao(float pop[][MAX_TAM_GA]);
+void calculaFitness(float pop[][MAX_TAM_GA], float dp[]);
 void crossover(float pop[][MAX_TAM_GA], float dp[]);
 void mutacao(float pop[][MAX_TAM_GA]);

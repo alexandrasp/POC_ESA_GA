@@ -26,12 +26,13 @@
 void startListAG(Temp* knowledge_base){
 
 	float Temperature[INDIVIDUOS][MAX_TAM_GA];
-	float aux[25];
+	float DesvioPadrao[INDIVIDUOS];
+	float aux[50];
 	int i,j;
 	populacaoInicial(Temperature);
-	for(i=0; i<40; i++)
+	for(i=0; i<GERACOES; i++)
 	{
-		calculaFitnessESelecao(Temperature);
+		calculaFitness(Temperature, DesvioPadrao);
 		mutacao(Temperature);
 	}
 
@@ -45,8 +46,6 @@ void startListAG(Temp* knowledge_base){
 			k++;
 		}
 	}
-
-
 
 	for(i=50; i<MAX_TAM; i++)
 	{
@@ -167,17 +166,11 @@ void populacaoInicial(float pop[][MAX_TAM_GA])
 
 }
 
-void calculaFitnessESelecao(float pop[][MAX_TAM_GA])
+void calculaFitness(float pop[][MAX_TAM_GA], float dp[])
 {
 
 	int i,j;
-	int m=0;
-	int n=0;
 	float media[INDIVIDUOS];
-	float dp[INDIVIDUOS];
-	float indexchoice1=0;
-	float indexchoice2=0;
-
 	for(i=0; i<INDIVIDUOS; i++)
 	{
 		media[i]=0;
@@ -199,12 +192,36 @@ void calculaFitnessESelecao(float pop[][MAX_TAM_GA])
 
 	}
 
-	crossover(pop, dp);
-
 }
 
 void crossover(float pop[][MAX_TAM_GA], float dp[])
 {
+	int aux[MAX_TAM_GA];
+	int novoIndividuo=0;
+	int i,j,k;
+	for(i=0; i<INDIVIDUOS; i=i+2){
+		for(j=0; j<MAX_TAM_GA; j++){
+			if(j<3)
+			{
+				aux[j]=pop[i][j];
+			}
+			else
+			{
+				aux[j]=pop[i+1][j];
+			}
+		}
+		if(dp[i]>dp[i+1])
+		{
+			novoIndividuo=i+1;
+		}
+		if(dp[i]<dp[i+1])
+		{
+			novoIndividuo=i;
+		}
+		for(k=0; k<MAX_TAM_GA; k++)
+				pop[novoIndividuo][k] = aux[k];
+	}
+
 
 }
 
