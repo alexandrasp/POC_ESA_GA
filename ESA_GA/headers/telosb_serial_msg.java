@@ -9,12 +9,12 @@ package blah.foo;
 public class telosb_serial_msg extends net.tinyos.message.Message {
 
     /** The default size of this message type in bytes. */
-    public static final int DEFAULT_MESSAGE_SIZE = 22;
+    public static final int DEFAULT_MESSAGE_SIZE = 24;
 
     /** The Active Message type associated with this message. */
     public static final int AM_TYPE = 101;
 
-    /** Create a new telosb_serial_msg of size 22. */
+    /** Create a new telosb_serial_msg of size 24. */
     public telosb_serial_msg() {
         super(DEFAULT_MESSAGE_SIZE);
         amTypeSet(AM_TYPE);
@@ -90,13 +90,13 @@ public class telosb_serial_msg extends net.tinyos.message.Message {
         s += "  [raw_voltage="+Float.toString(get_raw_voltage())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
-        s += "  [raw_temperature=0x"+Long.toHexString(get_raw_temperature())+"]\n";
+        s += "  [raw_temperature="+Float.toString(get_raw_temperature())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
-        s += "  [raw_msg_number=0x"+Long.toHexString(get_raw_msg_number())+"]\n";
+        s += "  [r_msg_number=0x"+Long.toHexString(get_r_msg_number())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
-        s += "  [raw_node_ID=0x"+Long.toHexString(get_raw_node_ID())+"]\n";
+        s += "  [r_node_ID=0x"+Long.toHexString(get_r_node_ID())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
         s += "  [converted_voltage="+Float.toString(get_converted_voltage())+"]\n";
@@ -180,9 +180,9 @@ public class telosb_serial_msg extends net.tinyos.message.Message {
 
     /////////////////////////////////////////////////////////
     // Accessor methods for field: raw_temperature
-    //   Field type: int, unsigned
+    //   Field type: float, unsigned
     //   Offset (bits): 32
-    //   Size (bits): 16
+    //   Size (bits): 32
     /////////////////////////////////////////////////////////
 
     /**
@@ -214,163 +214,163 @@ public class telosb_serial_msg extends net.tinyos.message.Message {
     }
 
     /**
-     * Return the value (as a int) of the field 'raw_temperature'
+     * Return the value (as a float) of the field 'raw_temperature'
      */
-    public int get_raw_temperature() {
-        return (int)getUIntBEElement(offsetBits_raw_temperature(), 16);
+    public float get_raw_temperature() {
+        return (float)getFloatElement(offsetBits_raw_temperature(), 32);
     }
 
     /**
      * Set the value of the field 'raw_temperature'
      */
-    public void set_raw_temperature(int value) {
-        setUIntBEElement(offsetBits_raw_temperature(), 16, value);
+    public void set_raw_temperature(float value) {
+        setFloatElement(offsetBits_raw_temperature(), 32, value);
     }
 
     /**
      * Return the size, in bytes, of the field 'raw_temperature'
      */
     public static int size_raw_temperature() {
-        return (16 / 8);
+        return (32 / 8);
     }
 
     /**
      * Return the size, in bits, of the field 'raw_temperature'
      */
     public static int sizeBits_raw_temperature() {
-        return 16;
+        return 32;
     }
 
     /////////////////////////////////////////////////////////
-    // Accessor methods for field: raw_msg_number
-    //   Field type: int, unsigned
-    //   Offset (bits): 48
-    //   Size (bits): 16
-    /////////////////////////////////////////////////////////
-
-    /**
-     * Return whether the field 'raw_msg_number' is signed (false).
-     */
-    public static boolean isSigned_raw_msg_number() {
-        return false;
-    }
-
-    /**
-     * Return whether the field 'raw_msg_number' is an array (false).
-     */
-    public static boolean isArray_raw_msg_number() {
-        return false;
-    }
-
-    /**
-     * Return the offset (in bytes) of the field 'raw_msg_number'
-     */
-    public static int offset_raw_msg_number() {
-        return (48 / 8);
-    }
-
-    /**
-     * Return the offset (in bits) of the field 'raw_msg_number'
-     */
-    public static int offsetBits_raw_msg_number() {
-        return 48;
-    }
-
-    /**
-     * Return the value (as a int) of the field 'raw_msg_number'
-     */
-    public int get_raw_msg_number() {
-        return (int)getUIntBEElement(offsetBits_raw_msg_number(), 16);
-    }
-
-    /**
-     * Set the value of the field 'raw_msg_number'
-     */
-    public void set_raw_msg_number(int value) {
-        setUIntBEElement(offsetBits_raw_msg_number(), 16, value);
-    }
-
-    /**
-     * Return the size, in bytes, of the field 'raw_msg_number'
-     */
-    public static int size_raw_msg_number() {
-        return (16 / 8);
-    }
-
-    /**
-     * Return the size, in bits, of the field 'raw_msg_number'
-     */
-    public static int sizeBits_raw_msg_number() {
-        return 16;
-    }
-
-    /////////////////////////////////////////////////////////
-    // Accessor methods for field: raw_node_ID
+    // Accessor methods for field: r_msg_number
     //   Field type: int, unsigned
     //   Offset (bits): 64
     //   Size (bits): 16
     /////////////////////////////////////////////////////////
 
     /**
-     * Return whether the field 'raw_node_ID' is signed (false).
+     * Return whether the field 'r_msg_number' is signed (false).
      */
-    public static boolean isSigned_raw_node_ID() {
+    public static boolean isSigned_r_msg_number() {
         return false;
     }
 
     /**
-     * Return whether the field 'raw_node_ID' is an array (false).
+     * Return whether the field 'r_msg_number' is an array (false).
      */
-    public static boolean isArray_raw_node_ID() {
+    public static boolean isArray_r_msg_number() {
         return false;
     }
 
     /**
-     * Return the offset (in bytes) of the field 'raw_node_ID'
+     * Return the offset (in bytes) of the field 'r_msg_number'
      */
-    public static int offset_raw_node_ID() {
+    public static int offset_r_msg_number() {
         return (64 / 8);
     }
 
     /**
-     * Return the offset (in bits) of the field 'raw_node_ID'
+     * Return the offset (in bits) of the field 'r_msg_number'
      */
-    public static int offsetBits_raw_node_ID() {
+    public static int offsetBits_r_msg_number() {
         return 64;
     }
 
     /**
-     * Return the value (as a int) of the field 'raw_node_ID'
+     * Return the value (as a int) of the field 'r_msg_number'
      */
-    public int get_raw_node_ID() {
-        return (int)getUIntBEElement(offsetBits_raw_node_ID(), 16);
+    public int get_r_msg_number() {
+        return (int)getUIntBEElement(offsetBits_r_msg_number(), 16);
     }
 
     /**
-     * Set the value of the field 'raw_node_ID'
+     * Set the value of the field 'r_msg_number'
      */
-    public void set_raw_node_ID(int value) {
-        setUIntBEElement(offsetBits_raw_node_ID(), 16, value);
+    public void set_r_msg_number(int value) {
+        setUIntBEElement(offsetBits_r_msg_number(), 16, value);
     }
 
     /**
-     * Return the size, in bytes, of the field 'raw_node_ID'
+     * Return the size, in bytes, of the field 'r_msg_number'
      */
-    public static int size_raw_node_ID() {
+    public static int size_r_msg_number() {
         return (16 / 8);
     }
 
     /**
-     * Return the size, in bits, of the field 'raw_node_ID'
+     * Return the size, in bits, of the field 'r_msg_number'
      */
-    public static int sizeBits_raw_node_ID() {
+    public static int sizeBits_r_msg_number() {
+        return 16;
+    }
+
+    /////////////////////////////////////////////////////////
+    // Accessor methods for field: r_node_ID
+    //   Field type: int, unsigned
+    //   Offset (bits): 80
+    //   Size (bits): 16
+    /////////////////////////////////////////////////////////
+
+    /**
+     * Return whether the field 'r_node_ID' is signed (false).
+     */
+    public static boolean isSigned_r_node_ID() {
+        return false;
+    }
+
+    /**
+     * Return whether the field 'r_node_ID' is an array (false).
+     */
+    public static boolean isArray_r_node_ID() {
+        return false;
+    }
+
+    /**
+     * Return the offset (in bytes) of the field 'r_node_ID'
+     */
+    public static int offset_r_node_ID() {
+        return (80 / 8);
+    }
+
+    /**
+     * Return the offset (in bits) of the field 'r_node_ID'
+     */
+    public static int offsetBits_r_node_ID() {
+        return 80;
+    }
+
+    /**
+     * Return the value (as a int) of the field 'r_node_ID'
+     */
+    public int get_r_node_ID() {
+        return (int)getUIntBEElement(offsetBits_r_node_ID(), 16);
+    }
+
+    /**
+     * Set the value of the field 'r_node_ID'
+     */
+    public void set_r_node_ID(int value) {
+        setUIntBEElement(offsetBits_r_node_ID(), 16, value);
+    }
+
+    /**
+     * Return the size, in bytes, of the field 'r_node_ID'
+     */
+    public static int size_r_node_ID() {
+        return (16 / 8);
+    }
+
+    /**
+     * Return the size, in bits, of the field 'r_node_ID'
+     */
+    public static int sizeBits_r_node_ID() {
         return 16;
     }
 
     /////////////////////////////////////////////////////////
     // Accessor methods for field: converted_voltage
     //   Field type: float, unsigned
-    //   Offset (bits): 80
+    //   Offset (bits): 96
     //   Size (bits): 32
     /////////////////////////////////////////////////////////
 
@@ -392,14 +392,14 @@ public class telosb_serial_msg extends net.tinyos.message.Message {
      * Return the offset (in bytes) of the field 'converted_voltage'
      */
     public static int offset_converted_voltage() {
-        return (80 / 8);
+        return (96 / 8);
     }
 
     /**
      * Return the offset (in bits) of the field 'converted_voltage'
      */
     public static int offsetBits_converted_voltage() {
-        return 80;
+        return 96;
     }
 
     /**
@@ -433,7 +433,7 @@ public class telosb_serial_msg extends net.tinyos.message.Message {
     /////////////////////////////////////////////////////////
     // Accessor methods for field: converted_temperature
     //   Field type: float, unsigned
-    //   Offset (bits): 112
+    //   Offset (bits): 128
     //   Size (bits): 32
     /////////////////////////////////////////////////////////
 
@@ -455,14 +455,14 @@ public class telosb_serial_msg extends net.tinyos.message.Message {
      * Return the offset (in bytes) of the field 'converted_temperature'
      */
     public static int offset_converted_temperature() {
-        return (112 / 8);
+        return (128 / 8);
     }
 
     /**
      * Return the offset (in bits) of the field 'converted_temperature'
      */
     public static int offsetBits_converted_temperature() {
-        return 112;
+        return 128;
     }
 
     /**
@@ -496,7 +496,7 @@ public class telosb_serial_msg extends net.tinyos.message.Message {
     /////////////////////////////////////////////////////////
     // Accessor methods for field: msg_number
     //   Field type: int, unsigned
-    //   Offset (bits): 144
+    //   Offset (bits): 160
     //   Size (bits): 16
     /////////////////////////////////////////////////////////
 
@@ -518,14 +518,14 @@ public class telosb_serial_msg extends net.tinyos.message.Message {
      * Return the offset (in bytes) of the field 'msg_number'
      */
     public static int offset_msg_number() {
-        return (144 / 8);
+        return (160 / 8);
     }
 
     /**
      * Return the offset (in bits) of the field 'msg_number'
      */
     public static int offsetBits_msg_number() {
-        return 144;
+        return 160;
     }
 
     /**
@@ -559,7 +559,7 @@ public class telosb_serial_msg extends net.tinyos.message.Message {
     /////////////////////////////////////////////////////////
     // Accessor methods for field: node_ID
     //   Field type: int, unsigned
-    //   Offset (bits): 160
+    //   Offset (bits): 176
     //   Size (bits): 16
     /////////////////////////////////////////////////////////
 
@@ -581,14 +581,14 @@ public class telosb_serial_msg extends net.tinyos.message.Message {
      * Return the offset (in bytes) of the field 'node_ID'
      */
     public static int offset_node_ID() {
-        return (160 / 8);
+        return (176 / 8);
     }
 
     /**
      * Return the offset (in bits) of the field 'node_ID'
      */
     public static int offsetBits_node_ID() {
-        return 160;
+        return 176;
     }
 
     /**

@@ -4,9 +4,9 @@
 typedef nx_struct telosb_serial_msg
 {
   nx_float raw_voltage;
-  nx_uint16_t raw_temperature;
-  nx_uint16_t raw_msg_number;
-  nx_uint16_t raw_node_ID;
+  nx_float raw_temperature;
+  nx_uint16_t r_msg_number;
+  nx_uint16_t r_node_ID;
 
   nx_float converted_voltage;
   nx_float converted_temperature;

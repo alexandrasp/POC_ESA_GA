@@ -1,5 +1,5 @@
-#include "telosb_serial_msg.h"
-#include "telosb_sbt80_msg.h"
+#include "headers/telosb_serial_msg.h"
+#include "headers/telosb_sbt80_msg.h"
 
 configuration SerialAppC
 {

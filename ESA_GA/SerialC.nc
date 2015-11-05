@@ -120,12 +120,12 @@ implementation
     int temp_real=0;
     // T = -39.6 + 0.01 * val
     serial->raw_temperature = val;
-    serial->node_ID = TOS_NODE_ID;
-    serial->msg_number = msg_number;
+    serial->r_node_ID = TOS_NODE_ID;
+    serial->r_msg_number = msg_number;
     radio->converted_temperature = serial->converted_temperature = -39.6 + 0.01 * (float)val;
     temp_real =-39.6 + 0.01 * (float)val;
-    radio->node_ID = serial->node_ID;
-    radio->msg_number = serial->msg_number;
+    radio->node_ID = serial->r_node_ID;
+    radio->msg_number = serial->r_msg_number;
     //sendSerial();
     knowledge_base_control(&knowledge_base_real, temp_real);
     planning(data_analysis(&knowledge_base_real, temp_real), &SENSOR_INTERVAL, &PROPAGATION_INTERVAL);
