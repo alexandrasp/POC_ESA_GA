@@ -4,7 +4,7 @@
 
 #define MAX_TAM_GA 5
 #define INDIVIDUOS 10
-#define GERACOES 40
+#define GERACOES 20
 #define MIN_RAND 15.0
 #define MAX_RAND 35.0
 #define range 15
